@@ -37,10 +37,10 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Install Docker
-      uses: docker-practice/actions-setup-docker@v1.0.12
+    - name: Set up Docker
+      uses: docker-practice/actions-setup-docker@v1
       with:
-        docker_version: '24.04'        
+        docker_version: '20.10.7'     
 
     - name: Build DOcker Image
       run: docker build -f Dockerfile -t myapp:latest .
