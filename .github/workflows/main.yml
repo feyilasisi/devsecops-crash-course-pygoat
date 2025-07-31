@@ -53,6 +53,7 @@ jobs:
               "max-file": "3"
             }
           }
+        continue-on-error: true
 
     - name: Build DOcker Image
       run: docker build -f Dockerfile -t myapp:latest .
