@@ -41,6 +41,18 @@ jobs:
       uses: docker-practice/actions-setup-docker@v1
       with:
         docker_version: '24.04'
+        docker_channel: stable
+        docker_buildx: true
+        docker_cli_experimental: enabled
+        docker_daemon_json: |
+          {
+            "experimental": true,
+            "log-driver": "json-file",
+            "log-opts": {
+              "max-size": "10m",
+              "max-file": "3"
+            }
+          }
 
     - name: Build DOcker Image
       run: docker build -f Dockerfile -t myapp:latest .
